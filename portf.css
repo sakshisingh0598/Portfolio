@@ -4,7 +4,10 @@ body {
   margin: 0;
   background: #ecf0f1;
 }
-
+html
+{
+	scroll-behavior: smooth;
+}
 .sidebar {
   display: flex;
   flex-direction: column;
@@ -130,7 +133,8 @@ body {
     height:100vh;
     overflow: hidden;
     position: relative;
-    font-family: raleway;
+	font-family: raleway;
+	
   }
   /* Scroll Animation */
   .menu-padded .fullslider .scroll-button{
@@ -349,7 +353,7 @@ body {
   /* About Section  */
 .content .about {
 	z-index: 100;
-	padding-left: 18vw;
+	padding-left: 12vw;
 	height: 65vh;
 	font-family: raleway;
 	text-align: center;
@@ -371,12 +375,51 @@ body {
 }
 .content .about .about-content .heyimg{
 	justify-content: center;
-	margin:10px 20px;
+	margin:10px 35px;
 	float:left;
 }
 .content .about .about-content .hey{
 	width:70vw;
 	height:45vh;
 	text-align: left;
+
+}
+
+/* About section Over */
+
+/* Experience Section */
+
+.content .exper {
+	z-index: 100;
+	padding-left: 12vw;
+	height: 65vh;
+	font-family: raleway;
+	text-align: center;
+	margin: 10px 20px;
+}
+.content .exper .heading{
+	font-size: 80px;
+	margin-top: 20px;
+}
+.content .exper .exper-content{
+	text-align: center;
+	width: 70vw;
+    margin: auto auto;
+}
+.content .exper .exper-content img{
+	height: 200px;
+	width: 150px;
+	border-radius: 25%;
+}
+.content .exper .exper-content .experimg{
+	justify-content: center;
+	margin:10px 20px;
+	float:left;
+}
+.content .exper .exper-content .exper{
+	width:70vw;
+	height:45vh;
+	text-align: left;
+	/* margin-left: 190px; */
 
 }
