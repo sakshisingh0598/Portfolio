@@ -396,6 +396,10 @@ html
 	font-family: raleway;
 	text-align: center;
 	margin: 10px 20px;
+	/* background-image: url(exp1.jpg) no-repeat; */
+	background: url(exp1.jpg) no-repeat;
+    background-size: 100% 100%;
+    opacity: 100%;
 }
 .content .exper .heading{
 	font-size: 80px;
@@ -423,3 +427,9 @@ html
 	/* margin-left: 190px; */
 
 }
+body
+{
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
