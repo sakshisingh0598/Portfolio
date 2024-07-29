@@ -44,10 +44,16 @@
 	<!-- boxicons -->
 	<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
-	<script src="./script.js" defer></script>
+	
+	<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+	<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js" defer></script>
+	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.halo.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
+
+	<script src="./script.js" defer></script>
 
 	<title>Sakshi Singh</title>
 </head>
@@ -192,6 +198,19 @@
 		</nav>
 	</header>
 
+	<!-- Project Gallery Overlay -->
+	
+	<div id="overlay" class="overlay">
+        <span class="close-btn" onclick="hideOverlay()">&times;</span>
+        <!-- <div class="carousel" id="galleryCarousell" data-flickity='{ "wrapAround": true }'> -->
+        <div class="carousel" id="galleryCarousell"></div>
+		<div>
+			<a id="overlay-github-btn" class="overlay-github-btn" target="_blank">Github</a>
+			<a id="overlay-live-btn" class="overlay-live-btn" target="_blank">Live Demo</a>
+		</div>
+		
+    </div>
+
 	<main id="main-content">
 		<!-- hero section -->
 		<div class="animated-bg"></div>
@@ -233,13 +252,6 @@
 									Download Resume</b>
 							</a>
 
-							<!-- <div class="indicator">
-								<span></span>
-								<span></span>
-								<span></span>
-								<span></span>
-								 <span></span>
-							  </div> -->
 						</div>
 						<div class="scrollButton">
 							<div class="scroll-container">
@@ -252,11 +264,6 @@
 
 				</article>
 
-				<!-- <img
-						src="./assets/two.svg"
-						alt="coding desk"
-						class="fade-in code" /> -->
-
 			</div>
 
 		</section>
@@ -266,7 +273,7 @@
 			<div class="container" data-aos="fade-up">
 				<img src="./assets/me3.jpeg" alt="sakshi-singh" />
 				<article>
-					<!-- <p class="subtitle secc">Who is Prakhar Bhartiya?</p> -->
+
 					<h2 class="title">A Bit About Me</h2>
 					<div class="about secc">
 						<p>Hey there!
@@ -276,22 +283,7 @@
 							Before this, I had a fantastic stint as a Software Developer at Akamai Technologies, the world's largest CDN company. I'm a tech enthusiast who’s always game for adopting the right technology for the job—flexibility is my middle name! Beyond the techie stuff, I’m a hardcore sci-fi fan and love reading books of all kinds.
 							
 							I'm always on the lookout for opportunities to sharpen my skills so I can give back to society in a better way. I love connecting with other professionals and soaking up their experiences. So, if you’re up for a chat or just want to share some insights, feel free to ping me. Let’s connect and have some fun conversations!</p>
-						<!-- <p>
-							Namaste! My name is Sakshi Singh, and I am a graduate with an MSCS degree from USC. At
-							present, I am employed as a creative XR developer at Meteor Studio - ASU. </p>
-						<p> I strongly believe in learning by doing, which is a crucial aspect of my work. In my
-							opinion, hands-on experience is irreplaceable, and I am always on the lookout for
-							opportunities to apply my skills in practical situations. </p>
-						By taking on challenging projects and experimenting with new ideas, I am continually growing and
-						evolving as a developer.
-						<p>My expertise lies in Extended Reality (AR+VR), Machine Learning, and AI, and I have also
-							explored computer vision and full-stack development.</p>
-						<p>I am an idea-driven individual who believes that solid ideas can overcome any skill barriers.
-							I am always on the lookout for innovative solutions and am committed to finding the right
-							tools to bring these ideas to life.
-							You can explore my fascinating projects on my GitHub page, and if any of them catch your
-							eye, feel free to reach out to me for a chat.
-						</p> -->
+
 					</div>
 				</article>
 			</div>
@@ -413,13 +405,6 @@
 						</div>
 					</div>
 				</div>
-				<!-- Programming Language: C, C++, C#, Python, HTML, CSS, JavaScript, SQL<br>
-						Developer Tools: Git, VS Code, Unity3D, Blender, SketchUp, AxureRP<br>
-						SDKs: WebXR, Vuforia, ARKit, ARCore, Wikitude, OpenXR, AR.js, Three.js, OpenGL<br>
-						Libraries: TensorFlow, Keras, PyTorch, Scikit-learn, Matplotlib, Pandas, NumPy, OpenCV, OCR, YOLOv3<br>
-						Hardware: Quest2, Pico Neo3, Varjo XR-3, Raspberry Pi, Arduino<br> -->
-
-
 		</section>
 
 		<!-- Work Experience section -->
@@ -506,9 +491,7 @@
 					<ul class="other-projects">
 						<!-- Project 1 -->
 						<li>
-							<a href="https://stockinforetreival.wl.r.appspot.com/#/search/home" target="_blank" rel="noreferrer"
-								class="card">
-
+							<a onclick="showOverlay(1)" class="card">
 								<h4>Stock Trading Application</h4>
 								<p class="secc">
 									● Developed a stock trading platform utilizing Finnhub and Polygon.io APIs, supporting over 4800 simultaneous users, to provide real-time market data and robust trading functionalities <br>
@@ -526,8 +509,7 @@
 						<!-- Project 2 -->
 						<li>
 							<!-- TODO : Make a repor and Update the github repo link -->
-							<a href="https://github.com/Prakhar-Bhartiya/Pixi_Best_Buy" target="_blank" rel="noreferrer"
-								class="card">
+							<a onclick="showOverlay(2)" class="card">
 
 								<h4>Rubber Duck Project</h4>
 								<p class="secc">
@@ -546,32 +528,8 @@
 						</li>
 						<!-- Project 3 -->
 						<li>
-							<!-- TODO : Update github repo link -->
-							<a href="https://github.com/Prakhar-Bhartiya/BrainNet" target="_blank" rel="noreferrer"
-								class="card">
+							<a onclick="showOverlay(3)" class="card">
 
-								<h4>Biometric Liveness and Anomaly Detection</h4>
-								<p class="secc">
-									● Implemented an Android application to address biometric liveness detection using EEG data, enhancing security measures in biometric systems<br>
-									● Integrated state-of-the-art machine learning techniques, including Generative Adversarial Networks (GANs), Variational Autoencoders (VAEs), Autoencoders, and feature extraction, achieving a 98% accuracy rate in detecting biometric liveness<br>
-								</p>
-								<ul class="tech-stack">
-									<li>Android Studio</li>
-									<li>Chaquopy</li>
-									<li>OpenCV</li>
-									<li>Flask</li>
-									<li>JavaScript</li>
-									<li>Python</li>
-								</ul>
-							</a>
-						</li>
-						<!-- Project 4 -->
-						<li>
-							<!-- TODO : Update github repo link -->
-							<a href="https://github.com/Prakhar-Bhartiya/Breast_Cancer_Detection" target="_blank"
-								rel="noreferrer" class="card">
-								
-								<!-- TODO : Rewrite to fit other previous project -->
 								<h4>Breast Cancer Detection</h4>
 								<p class="secc">
 									● Invasive ductal carcinoma (IDC) is the most common form of breast cancer, with a 99%
@@ -579,8 +537,7 @@
 									● The current detection method requires an expert pathologist to examine tissue slices. We
 									automated the process by developing a
 									95% accurate CNN model for breast cancer classification and localization.<br>
-									● I automated the
-									process by developing a 95% accurate CNN model for breast cancer classification and localization.<br>
+									● Automated the process by developing a 95% accurate CNN model for breast cancer classification and localization.<br>
 								</p>
 								<ul class="tech-stack">
 									<li>TensorFlow</li>
@@ -592,15 +549,16 @@
 								</ul>
 							</a>
 						</li>
-						<!-- Project 5 -->
+
+						<!-- Project 4 -->
 						<li>
 							
-							<a href="https://github.com/sakshisingh0598/Sequence_alignment_project" target="_blank"
-								rel="noreferrer" class="card">
+							<a onclick="showOverlay(4)" class="card">
 
 								<h4>Sequence Alignment Algorithm Implementation</h4>
 								<p class="secc">
-									I implemented a sequence alignment algorithm using both dynamic programming (DP) and divide-and-conquer techniques, crucial in bioinformatics, genomic research, protein engineering, and medical research for identifying sequence similarities and mutations. The DP approach, with O(m*n) space complexity, is ideal for high-precision tasks like genomic sequence analysis. In contrast, the divide-and-conquer method reduces space complexity to O(m+n), suitable for large sequences or memory-constrained applications.
+									● Implemented a sequence alignment algorithm using dynamic programming (DP) and divide-and-conquer techniques, crucial for bioinformatics, genomic research, protein engineering, and medical research in identifying sequence similarities and mutations. <br>
+									● Utilized the DP approach with O(m*n) space complexity for high-precision tasks like genomic sequence analysis, and the divide-and-conquer method with O(m+n) space complexity for large sequences or memory-constrained applications.
 								</p>
 								<ul class="tech-stack">
 									<li>Algorithms</li>
@@ -608,6 +566,23 @@
 									<li>Matplotlib</li>
 									<li>Pandas</li>
 									<li>NumPy</li>
+								</ul>
+							</a>
+						</li>
+						<!-- Project 5 -->
+						<li>
+							<a onclick="showOverlay(5)" class="card">
+
+								<h4>XploreKshmr</h4>
+								<p class="secc">
+									● Developed XploreKshmr, a comprehensive tourism website for Kashmir featuring immersive carousels, interactive cards for top tourist spots, and a secure login system with encrypted passwords, focusing on exceptional UI/UX and responsive design. <br>
+									● Utilized SQL for efficient data management and PHP for backend development, ensuring fast performance and secure data handling, and integrated additional features like interactive maps, event calendars, and customizable itineraries.
+								</p>
+								<ul class="tech-stack">
+									<li>Firebase</li>
+									<li>JavaScript</li>
+									<li>HTML/CSS</li>
+									<li>PHP</li>
 								</ul>
 							</a>
 						</li>
